@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
         // $users = User::find(1);
         // $role = Role::create(['name' => 'super-admin']);
         // $users->assignrole($role);
-        $users = User::all();
+        $users = User::where('type', 1)->get();
         return view('users.index' , compact('users'));
     }
 
@@ -111,5 +112,64 @@ class UserController extends Controller
     public function destroy($id)
     {
         return $id;
+    }
+
+    public function vendor()
+    {
+        $users = User::where('type', 2)->get();
+        return view('users.vendor', compact('users'));
+    }
+
+    public function customer()
+    {
+        $users = User::where('type', 3)->get();
+        return view('users.customer', compact('users'));
+    }
+
+    public function profile()
+    {
+        return view('users.profile');
+    }
+
+    public function user_profile(Request $request)
+    {
+        $request->validate([
+            'username'  => 'required',
+            'email'     => 'required|email',
+        ]);
+        $input              = $request->only('name','email');
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $user = $user->update($input);
+        return redirect(route('user.profile'))->with('status', "Successfully Updated");
+    }
+
+    public function user_password(Request $request)
+    {
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($request->old_password , $hashedPassword )) {
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $user = $user->update([
+                'password'  => $request->new_password
+            ]);
+            return redirect(route('user.profile'))->with('status', "Successfully Updated");
+        }else{
+            return redirect(route('user.profile'))->with('error', "old password Not Match");
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function vendorDetail(User $user)
+    {
+        $data = [
+            'vendor'    =>  $user
+        ];
+        return view('users.vendor_detail',$data);
     }
 }

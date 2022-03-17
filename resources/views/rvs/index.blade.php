@@ -27,6 +27,9 @@
         </div>
     </header>
     <div class="container-fluid animatedParent animateOnce">
+        @if (session('approved_msg'))
+            <p class="alert alert-success">{{session('approved_msg')}}</p>
+        @endif
         <div class="tab-content my-3" id="v-pills-tabContent">
             <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                 <div class="row my-3">
@@ -37,10 +40,11 @@
                                     <thead>
                                     <tr class="no-b">
                                         <th></th>
-                                        <th>Course Name</th>
+                                        <th>RV Name</th>
                                         <th>Destination</th>
                                         <th>price</th>
                                         <th>Create Date</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -56,6 +60,17 @@
                                                 <td>{{ $rv->destination->name }}</td>
                                                 <td>{{ $rv->price }}</td>
                                                 <td>{{ $rv->created_at->diffForHumans() }}</td>
+                                                <td>
+                                                    @if ($rv->approve == 0)
+                                                    <a href="{{route('rv_status_approve',[$rv->id])}}">
+                                                        <span class="r-3 badge badge-success ">Click to Approve</span>
+                                                    </a>
+
+                                                    @else
+                                                        <span class="r-3 badge badge-info ">Approved</span>
+
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <a href="{{route('rvs.edit', $rv->id)}}"><i class="icon-pencil"></i></a>
                                                     <a href="{{route('rvs.destroy', $rv->id)}}" onclick="event.preventDefault();

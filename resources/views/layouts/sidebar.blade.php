@@ -37,13 +37,29 @@
                         </li>
                         <li><a href="{{route('permission.create')}}"><i class="icon icon-add"></i>Add Permission</a>
                         </li>
-                        <li><a href="{{route('user.index')}}"><i class="icon icon-users"></i>Vectors</a>
-                        </li>
-                        <li><a href="{{route('user.index')}}"><i class="icon icon-users"></i>Customers</a>
+                    </ul>
+                </li>
+            @endrole
+
+            @role('super-admin')
+                <li class="treeview"><a href="#"><i class="icon icon-desktop s-18"></i>Vendors<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('user.vendor')}}"><i class="icon icon-desktop2"></i>All Vendors</a>
                         </li>
                     </ul>
                 </li>
             @endrole
+            @role('super-admin')
+                <li class="treeview"><a href="#"><i class="icon icon-desktop s-18"></i>Customers<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('user.vendor')}}"><i class="icon icon-desktop2"></i>All Customers</a>
+                        </li>
+                    </ul>
+                </li>
+            @endrole
+
 
             @role('super-admin')
                 <li class="treeview"><a href="#"><i class="icon icon-desktop s-18"></i>Destinations<i
@@ -61,6 +77,7 @@
                 </li>
             @endrole
 
+
             @role('super-admin')
                 <li class="treeview"><a href="#"><i class="icon icon-desktop s-18"></i>RVs<i
                         class="icon icon-angle-left s-18 pull-right"></i></a>
@@ -73,6 +90,32 @@
                             <li><a href="{{route('rvs.create')}}"><i class="icon icon-desk-chair"></i>Add RV</a>
                             </li>
                         @endcan
+                    </ul>
+                </li>
+            @endrole
+
+            @role('super-admin')
+                <li class="treeview"><a href="#"><i class="icon icon-desktop s-18"></i>Blogs<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        @can('show-course')
+                            <li><a href="{{route('blog.index')}}"><i class="icon icon-desktop2"></i>All Blogs</a>
+                            </li>
+                        @endcan
+                        @can('add-course')
+                            <li><a href="{{route('blog.create')}}"><i class="icon icon-desk-chair"></i>Add Blog</a>
+                            </li>
+                        @endcan
+                    </ul>
+                </li>
+            @endrole
+
+            @role('super-admin')
+                <li class="treeview"><a href="#"><i class="icon icon-desktop s-18"></i>Booking<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('booking.index')}}"><i class="icon icon-desktop2"></i>All Bookings</a>
+                        </li>
                     </ul>
                 </li>
             @endrole

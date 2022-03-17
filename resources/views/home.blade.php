@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="has-sidebar-left">
-    <div class="container-fluid animatedParent animateOnce">
+    {{-- <div class="container-fluid animatedParent animateOnce">
         <div class="animated fadeInUpShort my-3">
             <div class="row">
                 <div class="col-md-7">
@@ -269,6 +269,113 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div> --}}
+    <div class="container-fluid relative animatedParent animateOnce p-lg-4">
+        <div class="row my-2">
+            <div class="col-lg-3">
+                <a href="{{route('user.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-users s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Users</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('role.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-add_circle s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Roles</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('permission.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-eye3 s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Permissions</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('user.vendor')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-user-plus s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Vendors</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-lg-3">
+                <a href="{{route('user.vendor')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-user-o s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Customers</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('destination.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-location-arrow s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Destinations</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('rvs.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-directions_car s-48"></span>
+
+                        <h6 class="counter-title mt-2">All RVs</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('blog.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-newspaper-o s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Blogs</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-lg-3">
+                <a href="{{route('booking.index')}}">
+                    <div class="counter-box p-4 white shadow2 r-5 text-center">
+                        <div class="float-right">
+                        </div>
+                        <span class="icon icon-bookmark-add2 s-48"></span>
+
+                        <h6 class="counter-title mt-2">All Booking</h6>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

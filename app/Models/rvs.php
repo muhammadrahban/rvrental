@@ -17,7 +17,14 @@ class rvs extends Model
         'image',
         'slug',
         'short_desc',
-        'desc'
+        'desc',
+        'price_night',
+        'price_week',
+        'price_month',
+        'booking_deposite',
+        'security_deposite',
+        'balance_due',
+        'approve'
     ];
 
     /**
@@ -25,7 +32,7 @@ class rvs extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Image()
+    public function Images()
     {
         return $this->hasMany(Image::class, 'refrence_id', 'id');
     }
@@ -38,5 +45,35 @@ class rvs extends Model
     public function destination()
     {
         return $this->hasOne(destination::class, 'id', 'des_id');
+    }
+
+    /**
+     * Get all of the rvAddon for the rvs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rvAddon()
+    {
+        return $this->hasMany(rvaddon::class, 'rv_id', 'id');
+    }
+
+    /**
+     * Get all of the rvAddon for the rvs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rvservices()
+    {
+        return $this->hasMany(rvservices::class, 'rv_id', 'id');
+    }
+
+    /**
+     * Get all of the rvAddon for the rvs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rvAttribute()
+    {
+        return $this->hasMany(rvattribute::class, 'rv_id', 'id');
     }
 }

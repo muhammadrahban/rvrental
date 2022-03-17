@@ -15,7 +15,7 @@
     }
   });
 
-	
+
 	$('nav .dropdown').hover(function(){
 		var $this = $(this);
 		$this.addClass('show');
@@ -169,7 +169,7 @@
 
   var windowScroll = function() {
 
-    $(window).scroll(function(){
+    $(window).on('scroll',function(){
       var $win = $(window);
       if ($win.scrollTop() > 200) {
         $('.js-site-header').addClass('scrolled');
@@ -186,13 +186,13 @@
   var goToTop = function() {
 
     $('.js-gotop').on('click', function(event){
-      
+
       event.preventDefault();
 
       $('html, body').animate({
         scrollTop: $('html').offset().top
       }, 500, 'easeInOutExpo');
-      
+
       return false;
     });
 
@@ -206,7 +206,7 @@
       }
 
     });
-  
+
   };
 
 

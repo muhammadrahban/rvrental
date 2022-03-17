@@ -89,7 +89,7 @@
                     </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        <input type="hidden" name="type" value="1">
                         <div class="form-group has-icon"><i class="icon-user-circle"></i>
                             <input id="name" type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="name" autofocus>
 

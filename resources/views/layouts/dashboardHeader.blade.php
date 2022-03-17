@@ -20,7 +20,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- Messages-->
-                        <li class="dropdown custom-dropdown messages-menu">
+                        {{-- <li class="dropdown custom-dropdown messages-menu">
                             <a href="#" class="nav-link" data-toggle="dropdown">
                                 <i class="icon-message"></i>
                                 <span class="badge badge-success badge-mini rounded-circle">4</span>
@@ -131,7 +131,7 @@
                             aria-expanded="false" aria-label="Toggle navigation">
                                 <i class=" icon-search3 "></i>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- User Account-->
                         <li class="dropdown custom-dropdown user user-menu ">
                             <a href="#" class="nav-link" data-toggle="dropdown">
@@ -143,7 +143,7 @@
                             </a>
                             <div class="dropdown-menu p-4 dropdown-menu-right">
                                 <div class="row box justify-content-between my-4">
-                                    <div class="col"><a href="#">
+                                    <div class="col"><a href="{{route('user.profile')}}">
                                         <i class="icon-beach_access pink lighten-1 avatar  r-5"></i>
                                         <div class="pt-1">Profile</div>
                                     </a></div>
